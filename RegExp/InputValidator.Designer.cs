@@ -1,6 +1,6 @@
 ﻿namespace RegExp
 {
-    partial class Form1
+    partial class InputValidator
     {
         /// <summary>
         /// Required designer variable.
@@ -66,13 +66,14 @@
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(12, 18);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.Size = new System.Drawing.Size(38, 13);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "Name:";
             // 
@@ -81,7 +82,7 @@
             this.lblPhone.AutoSize = true;
             this.lblPhone.Location = new System.Drawing.Point(12, 53);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(35, 13);
+            this.lblPhone.Size = new System.Drawing.Size(41, 13);
             this.lblPhone.TabIndex = 5;
             this.lblPhone.Text = "Phone:";
             // 
@@ -106,7 +107,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtName);
-            this.Name = "InputValidator";
+            this.Name = "Form1";
             this.Text = "Input validator";
             this.ResumeLayout(false);
             this.PerformLayout();
