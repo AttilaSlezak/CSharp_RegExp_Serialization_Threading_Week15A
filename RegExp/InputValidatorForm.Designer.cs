@@ -1,6 +1,6 @@
 ﻿namespace RegExp
 {
-    partial class InputValidator
+    partial class InputValidatorForm
     {
         /// <summary>
         /// Required designer variable.
