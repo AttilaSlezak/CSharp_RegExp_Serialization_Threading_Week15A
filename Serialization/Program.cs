@@ -19,14 +19,24 @@ namespace Serialization
             fileStream.Close();
         }
 
+        private static Person Deserialize()
+        {
+            Person dsPerson = new Person();
+            FileStream fileStream = new FileStream(@"C:\testfiles\Person.dat", FileMode.Open);
+            BinaryFormatter bFormatter = new BinaryFormatter();
+            dsPerson = (Person)bFormatter.Deserialize(fileStream);
+            fileStream.Close();
+            return dsPerson;
+        }
+
         private static Person createPersonFromArgs(string[] args)
         {
             string name;
             DateTime birthDate;
             int weight;
-            int height;
+            double height;
 
-            if (!Regex.IsMatch(args[0], @"^[A-Za-z .]+$"))
+            if (!Regex.IsMatch(args[0], @"^[A-Za-z][A-Za-z .]*$"))
             {
                 Console.WriteLine("The first argument must be a name in quotation marks!");
                 System.Environment.Exit(1);
@@ -35,7 +45,7 @@ namespace Serialization
             name = args[0];
             bool isDateTime = DateTime.TryParse(args[1], out birthDate);
             bool isIntWeight = Int32.TryParse(args[2], out weight);
-            bool isIntHeight = Int32.TryParse(args[3], out height);
+            bool isDoubleHeight = Double.TryParse(args[3], out height);
             
             if (!isDateTime)
             {
@@ -43,9 +53,9 @@ namespace Serialization
                 System.Environment.Exit(1);
             }
 
-            if (!isIntHeight || !isIntWeight)
+            if (!isDoubleHeight || !isIntWeight)
             {
-                Console.WriteLine("The third and fourth argument must be an integer!");
+                Console.WriteLine("The third argument must be an integer and the fourth one is a decimal number!");
                 System.Environment.Exit(1);
             }
 
@@ -68,12 +78,17 @@ namespace Serialization
                     Console.WriteLine("Now program works with a default Person.");
                 }
                 DateTime birthDate = Convert.ToDateTime("1809.02.12");
-                person = new Person("Abraham Lincoln", birthDate, 82, 192);
+                person = new Person("Abraham Lincoln", birthDate, 82, 1.92);
             }
 
-            Console.WriteLine("\nBefore serialization: {0} is {1} years old.", person.Name, person.Age);
+            Console.WriteLine("\nBefore serialization: {0} is {1} years old, {2} m high and {3} kg.", 
+                person.Name, person.Age, person.Heigth, person.Weight);
 
             Serialize(person);
+            Person dsPerson = Deserialize();
+
+            Console.WriteLine("\nAfter deserialization: {0} is still {1} years old, {2} m high and {3} kg.", 
+                dsPerson.Name, dsPerson.Age, dsPerson.Heigth, dsPerson.Weight);
         }
-    }
+    } 
 }
