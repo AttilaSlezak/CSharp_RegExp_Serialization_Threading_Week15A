@@ -75,8 +75,8 @@ namespace Serialization
                 if (args.Length > 0)
                 {
                     Console.WriteLine("\nYou have to give 4 arguments: a name in quotation marks, a birthdate, and a weight (int), and a height (int)!");
-                    Console.WriteLine("Now program works with a default Person.");
                 }
+                Console.WriteLine("Now program works with a default Person:");
                 DateTime birthDate = Convert.ToDateTime("1809.02.12");
                 person = new Person("Abraham Lincoln", birthDate, 82, 1.92);
             }

@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace Serialization
 {
     [Serializable]
-    class Person : IDeserializationCallback
+    class Person : ISerializable, IDeserializationCallback
     {
         private string _name;
         private DateTime _birthDate;
@@ -42,6 +42,15 @@ namespace Serialization
             this._age = CalculateAge();
         }
 
+        public Person(SerializationInfo info, StreamingContext context)
+        {
+            _name = info.GetString("Name");
+            _birthDate = info.GetDateTime("Date of birth");
+            _age = CalculateAge();
+            _weight = info.GetInt32("Weight");
+            _height = info.GetDouble("Height");
+        }
+
         [OnSerialized]
         public void InfoOnSerializable(StreamingContext context)
         {
@@ -51,6 +60,14 @@ namespace Serialization
         void IDeserializationCallback.OnDeserialization(object sender)
         {
             _age = CalculateAge();
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Name", _name);
+            info.AddValue("Date of birth", _birthDate);
+            info.AddValue("Weight", _weight);
+            info.AddValue("Height", _height);
         }
     }
 }
