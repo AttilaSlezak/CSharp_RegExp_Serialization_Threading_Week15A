@@ -38,7 +38,7 @@ namespace Serialization
         [OnSerialized]
         public void InfoOnSerializable(StreamingContext context)
         {
-            Console.WriteLine("The Person's (called " + _name + ") object is under serializing.");
+            Console.WriteLine("\nThe Person's (called " + _name + ") object is under serializing.");
         }
     }
 }
