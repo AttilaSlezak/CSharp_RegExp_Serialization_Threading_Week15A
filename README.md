@@ -17,7 +17,7 @@ This repository contents six C# solutions. Three of them is about Threading.</p>
   <ul>
     <li><a href="#ex3">Exercise 3: Convert a Text File to a Different Encoding Type</a></li>
   </ul>
-  <li>Serialization</li>
+  <li><b>Serialization</b></li>
   <ul>
     <li><a href="#ex4">Exercise 4: Make a Class Serializable</a></li>
 	<li><a href="#ex5">Exercise 5: Serialize an Object</a></li>
@@ -25,7 +25,7 @@ This repository contents six C# solutions. Three of them is about Threading.</p>
 	<li><a href="#ex7">Exercise 7: Optimize a Class for Deserialization</a></li>
 	<li><a href="#ex8">Exercise 8: Update a Class to Use Custom Serialization</a></li>
   </ul>
-  <li>Threading</li>
+  <li><b>Threading</b></li>
   <ul>
     <li><a href="#ex9">Exercise 9: Create Multiple Threads (SimpleThreadingDemo)</a></li>
 	<li><a href="#ex10">Exercise 10: Use a Mutex to Create a Single-Instance Application (SingleInstance)</a></li>
